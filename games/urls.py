@@ -1,11 +1,12 @@
-from django.urls import path
+from django.urls import path, include
 
-from games.views import HomeView, MathGameView, AnagramGameView, record_score
+from games.views import HomeView, MathGameView, AnagramGameView, GameScoresView, record_score
 
 app_name = 'games'
 urlpatterns = [
-    path('', HomeView.as_view(), name='homepage'),
+    path('', HomeView.as_view(), name='home'),
     path('math-game/', MathGameView.as_view(), name='math-game'),
     path('anagram-game/', AnagramGameView.as_view(), name='anagram-game'),
     path('record-score/', record_score, name='record_score'),
+    path('game-scores/', GameScoresView.as_view(), name='game-scores'),
 ]

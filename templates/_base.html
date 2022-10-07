@@ -10,13 +10,6 @@
 </head>
 <body>
     {% block body %}
-    <header>
-        <nav>
-            <a href="{% url 'games:homepage' %}">Home</a>
-            <a href="{% url 'games:math-game' %}">Math Facts</a>
-            <a href="{% url 'games:anagram-game' %}">Anagram Hunt</a>
-        </nav>
-    </header>
     {% block main %}{% endblock %}
     {% endblock %}
 </body>

@@ -23,12 +23,20 @@ def record_score(request):
     return JsonResponse(response)
 
 # Create your views here.
+class AnagramGameView(TemplateView):
+    template_name = 'anagram-game.html'
+
+class GameScoresView(TemplateView):
+    template_name = 'game-scores.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(GameScoresView, self).get_context_data(**kwargs)
+        context['anagram_scores'] = GameScore.objects.filter(game__exact='ANAGRAM').order_by('-score')
+        context['math_scores'] = GameScore.objects.filter(game__exact='MATH').order_by('-score')
+        return context
+
 class HomeView(TemplateView):
     template_name = 'home.html'
 
 class MathGameView(TemplateView):
     template_name = 'math-game.html'
-
-class AnagramGameView(TemplateView):
-    template_name = 'anagram-game.html'
-
