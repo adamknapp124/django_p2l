@@ -2,6 +2,7 @@ import { createWebHistory, createRouter } from 'vue-router';
 
 import AnagramGame from './apps/AnagramGame.vue';
 import MathGame from './apps/MathGame.vue';
+import HomeView from './apps/HomeView';
 
 
 const routes = [
@@ -12,6 +13,14 @@ const routes = [
     {
         path: '/math-game',
         component: MathGame
+    },
+    {
+        path: '',
+        component: HomeView
+    },
+    {
+        path: '/home',
+        component: HomeView
     },
 ];
 

@@ -17,7 +17,7 @@
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item active">
-							<a class="nav-link" href="">Home</a>
+							<a class="nav-link" href="/home">Home</a>
 						</li>
 						{% if not user.is_authenticated %}
 						<li class="nav-item">
