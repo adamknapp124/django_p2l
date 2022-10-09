@@ -3,6 +3,7 @@ from django.urls import path, include
 from games.views import HomeView
 
 urlpatterns = [
-    path('', include('games.urls')),
+    path('admin/doc/', include('django.contrib.admindocs.urls')),
     path('admin/', admin.site.urls),
+    path('', include('games.urls')),
 ]
