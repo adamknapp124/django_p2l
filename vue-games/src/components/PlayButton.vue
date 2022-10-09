@@ -1,5 +1,7 @@
 <template>
-	<button class="btn btn-primary">Play!</button>
+	<button class="btn btn-primary" @click="$emit('play-button-click')">
+		Play!
+	</button>
 </template>
 
 <script>

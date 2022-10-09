@@ -14,7 +14,6 @@
 				{{ option[0] }}
 			</option>
 		</select>
-		<p>{{ currentValue }}</p>
 	</div>
 </template>
 
