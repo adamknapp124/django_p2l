@@ -1,10 +1,11 @@
 <template>
-	<div>
-		<label :for="id">{{ label }}</label>
+	<div class="row mx-1 my-3">
+		<label :for="id" class="col font-weight-bold">{{ label }}</label>
 		<select
 			:id="id"
 			:value="currentValue"
 			@input="$emit('input', $event.target.value)"
+			class="col"
 		>
 			<option
 				v-for="option in options"
