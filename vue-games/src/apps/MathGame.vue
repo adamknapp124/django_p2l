@@ -25,60 +25,74 @@
 			id="game-container"
 			class="text-center"
 		>
-			<template v-if="timeLeft === 0">
-				<h2>Time's Up!</h2>
-				<strong class="big">You answered</strong>
-				<div class="huge">{{ score }}</div>
-				<strong class="big">Questions Correctly</strong>
-				<button
-					class="btn btn-primary form-control m-1"
-					@click="config"
-				>
-					Play Again with Same Settings
-				</button>
-				<button
-					class="btn btn-secondary form-control m-1"
-					@click="config"
-				>
-					Change Settings
-				</button>
-			</template>
-			<template v-else>
-				<div class="row border-bottom" id="scoreboard">
-					<div class="col px-3 text-left">
-						<GameScore :score="score" />
-					</div>
-					<div class="col px-3 text-right">
-						<GameTimer :timeLeft="timeLeft" />
-					</div>
-				</div>
-				<div class="equationClass" id="equation">
-					<GameEquation
-						:question="question"
-						:answer="input"
-						:answered="answered"
-					/>
-				</div>
-				<div class="row" id="buttons">
-					<div class="col">
+			<transition name="slide">
+				<template v-if="timeLeft === 0">
+					<div>
+						<h2>Time's Up!</h2>
+						<strong class="big">You answered</strong>
+						<div class="huge">{{ score }}</div>
+						<strong class="big">Questions Correctly</strong>
 						<button
-							class="btn btn-primary number-button"
-							v-for="button in buttons"
-							:key="button"
-							@click="setInput(button)"
+							class="btn btn-primary form-control m-1"
+							@click="
+								config();
+								recordScore();
+							"
 						>
-							{{ button }}
+							Play Again with Same Settings
 						</button>
 						<button
-							class="btn btn-primary"
-							id="clear-button"
-							@click="clear"
+							class="btn btn-secondary form-control m-1"
+							@click="
+								config();
+								recordScore();
+							"
 						>
-							Clear
+							Change Settings
 						</button>
 					</div>
-				</div>
-			</template>
+				</template>
+			</transition>
+			<transition name="slide-right">
+				<template v-if="timeLeft > 0">
+					<div>
+						<div class="row border-bottom" id="scoreboard">
+							<div class="col px-3 text-left">
+								<GameScore :score="score" />
+							</div>
+							<div class="col px-3 text-right">
+								<GameTimer :timeLeft="timeLeft" />
+							</div>
+						</div>
+						<div class="equationClass" id="equation">
+							<GameEquation
+								:question="question"
+								:answer="input"
+								:answered="answered"
+							/>
+						</div>
+						<div class="row" id="buttons">
+							<div class="col">
+								<button
+									class="btn btn-primary number-button"
+									v-for="button in buttons"
+									:key="button"
+									@click="setInput(button)"
+								>
+									{{ button }}
+								</button>
+								<button
+									class="btn btn-primary"
+									id="clear-button"
+									@click="clear"
+								>
+									Clear
+								</button>
+							</div>
+						</div>
+					</div>
+				</template>
+			</transition>
 		</div>
 	</main>
 </template>
@@ -117,7 +131,7 @@ export default {
 			input: '',
 			operands: { num1: '1', num2: '1' },
 			answered: false,
-			gameLength: 60,
+			gameLength: 10,
 			timeLeft: 0,
 		};
 	},
@@ -212,12 +226,14 @@ export default {
 			return parseInt(userAnswer) === correctAnswer;
 		},
 		startTimer() {
+			window.addEventListener('keyup', this.handleKeyUp);
 			this.timeLeft = this.gameLength;
 			if (this.timeLeft > 0) {
 				this.timer = setInterval(() => {
 					this.timeLeft--;
 					if (this.timeLeft === 0) {
 						clearInterval(this.timer);
+						window.removeEventListener('keyup', this.handleKeyUp);
 					}
 				}, 1000);
 			}
@@ -226,6 +242,16 @@ export default {
 			this.score = 0;
 			this.startTimer();
 			this.newQuestion();
+		},
+		handleKeyUp(e) {
+			e.preventDefault();
+			if (e.keyCode === 32 || e.keyCode === 13) {
+				this.clear();
+			} else if (e.keyCode === 8) {
+				this.input = this.input.substring(0, this.input.length - 1);
+			} else if (!isNaN(e.key)) {
+				this.setInput(e.key);
+			}
 		},
 	},
 	computed: {
@@ -287,5 +313,41 @@ button.number-button {
 
 .huge {
 	font-size: 5em;
+}
+
+.slide-leave-active,
+.slide-enter-active {
+	position: absolute;
+	top: 56px;
+	transition: 1s;
+	width: 380px;
+}
+
+.slide-enter {
+	transform: translate(-100%, 0);
+	transition: opacity 0.5s;
+}
+
+.slide-leave-to {
+	opacity: 0;
+	transform: translate(100%, 0);
+}
+
+.slide-right-leave-active,
+.slide-right-enter-active {
+	position: absolute;
+	top: 56px;
+	transition: 1s;
+	width: 380px;
+}
+
+.slide-right-enter {
+	transform: translate(100%, 0);
+	transition: opacity 0.5s;
+}
+
+.slide-right-leave-to {
+	opacity: 0;
+	transform: translate(-100%, 0);
 }
 </style>
