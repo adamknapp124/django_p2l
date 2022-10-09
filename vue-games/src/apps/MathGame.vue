@@ -25,40 +25,60 @@
 			id="game-container"
 			class="text-center"
 		>
-			<div class="row border-bottom" id="scoreboard">
-				<div class="col px-3 text-left">
-					<GameScore />
+			<template v-if="timeLeft === 0">
+				<h2>Time's Up!</h2>
+				<strong class="big">You answered</strong>
+				<div class="huge">{{ score }}</div>
+				<strong class="big">Questions Correctly</strong>
+				<button
+					class="btn btn-primary form-control m-1"
+					@click="config"
+				>
+					Play Again with Same Settings
+				</button>
+				<button
+					class="btn btn-secondary form-control m-1"
+					@click="config"
+				>
+					Change Settings
+				</button>
+			</template>
+			<template v-else>
+				<div class="row border-bottom" id="scoreboard">
+					<div class="col px-3 text-left">
+						<GameScore :score="score" />
+					</div>
+					<div class="col px-3 text-right">
+						<GameTimer :timeLeft="timeLeft" />
+					</div>
 				</div>
-				<div class="col px-3 text-right">
-					<GameTimer />
+				<div class="equationClass" id="equation">
+					<GameEquation
+						:question="question"
+						:answer="input"
+						:answered="answered"
+					/>
 				</div>
-			</div>
-			<div class="equationClass" id="equation">
-				<GameEquation
-					:question="question"
-					:answer="input"
-					:answered="answered"
-				/>
-			</div>
-			<div class="row" id="buttons">
-				<div class="col">
-					<button
-						class="btn btn-primary number-button"
-						v-for="button in buttons"
-						:key="button"
-						@click="setInput(button)"
-					>
-						{{ button }}
-					</button>
-					<button
-						class="btn btn-primary"
-						id="clear-button"
-						@click="clear"
-					>
-						Clear
-					</button>
+				<div class="row" id="buttons">
+					<div class="col">
+						<button
+							class="btn btn-primary number-button"
+							v-for="button in buttons"
+							:key="button"
+							@click="setInput(button)"
+						>
+							{{ button }}
+						</button>
+						<button
+							class="btn btn-primary"
+							id="clear-button"
+							@click="clear"
+						>
+							Clear
+						</button>
+					</div>
 				</div>
-			</div>
+			</template>
 		</div>
 	</main>
 </template>
@@ -97,6 +117,8 @@ export default {
 			input: '',
 			operands: { num1: '1', num2: '1' },
 			answered: false,
+			gameLength: 60,
+			timeLeft: 0,
 		};
 	},
 	methods: {
@@ -106,6 +128,7 @@ export default {
 		play() {
 			this.screen = 'play';
 			this.newQuestion();
+			this.startTimer();
 		},
 		async recordScore() {
 			const data = {
@@ -188,6 +211,22 @@ export default {
 			}
 			return parseInt(userAnswer) === correctAnswer;
 		},
+		startTimer() {
+			this.timeLeft = this.gameLength;
+			if (this.timeLeft > 0) {
+				this.timer = setInterval(() => {
+					this.timeLeft--;
+					if (this.timeLeft === 0) {
+						clearInterval(this.timer);
+					}
+				}, 1000);
+			}
+		},
+		restart() {
+			this.score = 0;
+			this.startTimer();
+			this.newQuestion();
+		},
 	},
 	computed: {
 		numbers: function () {
@@ -240,5 +279,13 @@ button.number-button {
 
 #scoreboard {
 	font-size: 1.5em;
+}
+
+.big {
+	font-size: 1.5em;
+}
+
+.huge {
+	font-size: 5em;
 }
 </style>

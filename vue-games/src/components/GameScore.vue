@@ -6,7 +6,7 @@
 export default {
 	name: 'GameScore',
 	props: {
-		Score: Number,
+		score: Number,
 	},
 };
 </script>
