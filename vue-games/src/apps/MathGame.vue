@@ -1,25 +1,48 @@
 <template>
-	<div>
-		<p>This is the math game Vue.</p>
-		<div>
-			<label for="user-name">Username</label>
-			<input name="user-name" id="user-name" v-model="userName" />
-		</div>
-		<div>
-			<label for="score">Score</label>
-			<input name="score" type="number" id="score" v-model="score" />
-		</div>
-		<button @click="recordScore">Record Score</button>
-	</div>
+	<main id="main-container">
+		<h1>Math Facts</h1>
+		<SelectInput
+			:currentValue="operation"
+			label="Operation"
+			id="operation"
+			v-model="operation"
+			:options="operations"
+			@input="changeOperation"
+		/>
+		<SelectInput
+			:currentValue="maxNumber"
+			label="Maximum Number"
+			id="max-number"
+			v-model="maxNumber"
+			:options="numbers"
+			@input="changeMaxNumber"
+		/>
+		<PlayButton />
+	</main>
 </template>
 
 <script>
+import SelectInput from '../components/SelectInput.vue';
+import PlayButton from '../components/PlayButton.vue';
+
 export default {
 	name: 'MathGame',
+	components: {
+		SelectInput,
+		PlayButton,
+	},
 	data() {
 		return {
+			operations: [
+				['Addition', '+'],
+				['Subtraction', '-'],
+				['Multiplication', 'x'],
+				['Division', '/'],
+			],
 			userName: '',
 			score: 0,
+			operation: 'x',
+			maxNumber: '10',
 		};
 	},
 	methods: {
@@ -29,19 +52,34 @@ export default {
 				score: this.score,
 				game: 'MATH',
 			};
-
 			const response = (await this.axios.post('/record-score/', data))
 				.data;
-
 			console.log(response);
+		},
+		changeOperation(eventName) {
+			console.log(eventName.target.value);
+			this.operation = eventName.target.value;
+		},
+		changeMaxNumber(eventName) {
+			console.log(eventName.target.value);
+			this.maxNumber = eventName.target.value;
+		},
+	},
+	computed: {
+		numbers: function () {
+			const numbers = [];
+			for (let number = 2; number <= 100; number++) {
+				numbers.push([number, number]);
+			}
+			return numbers;
 		},
 	},
 };
 </script>
 
 <style scoped>
-div,
-label {
-	padding: 0.2rem;
+#main-container {
+	margin: auto;
+	width: 380px;
 }
 </style>
