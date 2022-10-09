@@ -33,8 +33,12 @@
 					<GameTimer />
 				</div>
 			</div>
-			<div class="row text-secondary my-2" id="equation">
-				<GameEquation />
+			<div class="equationClass" id="equation">
+				<GameEquation
+					:question="question"
+					:answer="input"
+					:answered="answered"
+				/>
 			</div>
 			<div class="row" id="buttons">
 				<div class="col">
@@ -42,10 +46,15 @@
 						class="btn btn-primary number-button"
 						v-for="button in buttons"
 						:key="button"
+						@click="setInput(button)"
 					>
 						{{ button }}
 					</button>
-					<button class="btn btn-primary" id="clear-button">
+					<button
+						class="btn btn-primary"
+						id="clear-button"
+						@click="clear"
+					>
 						Clear
 					</button>
 				</div>
@@ -60,6 +69,7 @@ import PlayButton from '../components/PlayButton.vue';
 import GameScore from '../components/GameScore.vue';
 import GameTimer from '../components/GameTimer.vue';
 import GameEquation from '../components/GameEquation.vue';
+import { randInt } from '../helpers/helpers';
 
 export default {
 	name: 'MathGame',
@@ -84,6 +94,9 @@ export default {
 			operation: 'x',
 			maxNumber: '10',
 			screen: 'config',
+			input: '',
+			operands: { num1: '1', num2: '1' },
+			answered: false,
 		};
 	},
 	methods: {
@@ -92,6 +105,7 @@ export default {
 		},
 		play() {
 			this.screen = 'play';
+			this.newQuestion();
 		},
 		async recordScore() {
 			const data = {
@@ -111,6 +125,69 @@ export default {
 			console.log(eventName.target.value);
 			this.maxNumber = eventName.target.value;
 		},
+		setInput(value) {
+			this.input += String(value);
+			this.input = String(Number(this.input));
+			this.answered = this.checkAnswer(
+				this.input,
+				this.operation,
+				this.operands
+			);
+			if (this.answered) {
+				setTimeout(this.newQuestion, 300);
+				this.score++;
+			}
+		},
+		clear() {
+			this.input = '';
+		},
+		getRandNumbers(operator, low, high) {
+			let num1 = randInt(low, high);
+			let num2 = randInt(low, high);
+			const numHigh = Math.max(num1, num2);
+			const numLow = Math.min(num1, num2);
+
+			if (operator === '-') {
+				num1 = numHigh;
+				num2 = numLow;
+			}
+
+			if (operator === '/') {
+				if (num2 === 0) {
+					num2 - randInt(1, high);
+				}
+				num1 = num1 * num2;
+			}
+			return { num1, num2 };
+		},
+		newQuestion() {
+			this.input = '';
+			this.answered = false;
+			this.operands = this.getRandNumbers(
+				this.operation,
+				0,
+				this.maxNumber
+			);
+		},
+		checkAnswer(userAnswer, operation, operands) {
+			if (isNaN(userAnswer)) return false;
+
+			let correctAnswer;
+			switch (operation) {
+				case '+':
+					correctAnswer = operands.num1 + operands.num2;
+					break;
+				case '-':
+					correctAnswer = operands.num1 - operands.num2;
+					break;
+				case 'x':
+					correctAnswer = operands.num1 * operands.num2;
+					break;
+				default: //division
+					correctAnswer = operands.num1 / operands.num2;
+			}
+			return parseInt(userAnswer) === correctAnswer;
+		},
 	},
 	computed: {
 		numbers: function () {
@@ -119,6 +196,19 @@ export default {
 				numbers.push([number, number]);
 			}
 			return numbers;
+		},
+		question: function () {
+			const num1 = this.operands.num1;
+			const num2 = this.operands.num2;
+			const equation = `${num1} ${this.operation} ${num2}`;
+			return equation;
+		},
+		equationClass: function () {
+			if (this.answered) {
+				return 'row text-primary my-2 fade';
+			} else {
+				return 'row text-secondary my-2';
+			}
 		},
 	},
 };

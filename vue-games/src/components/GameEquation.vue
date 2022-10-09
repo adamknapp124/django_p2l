@@ -1,14 +1,19 @@
 <template>
 	<div id="equation" class="row">
-		<div class="col-5">1+1</div>
+		<div class="col-5">{{ question }}</div>
 		<div class="col-2">=</div>
-		<div class="col-5">2</div>
+		<div class="col-5">{{ answer }}</div>
 	</div>
 </template>
 
 <script>
 export default {
 	name: 'GameEquation',
+	props: {
+		question: String,
+		answer: String,
+		answered: Boolean,
+	},
 };
 </script>
 
