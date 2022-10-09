@@ -18,10 +18,10 @@ class GameScore(models.Model):
     game = models.TextField(choices=GAME_CHOICES, default=MATH)
     score = models.IntegerField()
     created = models.DateTimeField(auto_now_add=True)
-
+    
 class Game(models.Model):
     game_name = models.TextField(max_length=200)
-    high_score = models.IntegerField()
+    high_score = models.IntegerField(null=True)
     last_played = models.DateTimeField(auto_now=True)
     slug = models.SlugField(
         max_length=50, unique=True, null=True, editable=False
