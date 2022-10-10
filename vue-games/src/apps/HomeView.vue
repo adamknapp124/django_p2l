@@ -1,17 +1,5 @@
 <template>
 	<main class="m-4 pb-5">
-		{% if messages %}
-		<ul>
-			{% for message in messages %}
-			<div class="alert message{{ message.tags }} alert-dismissible" role="alert">
-				<strong>{{ message }}</strong>
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-					<i class="fas fa-window-close"></i>
-				</button>
-			</div>
-			{% endfor %}
-		</ul>
-		{% endif %}
 		<div class="home row align-items-center m-auto pb-5">
 			<div class="bg-warning w-100">
 				<div class="home-title text-center text-dark">
