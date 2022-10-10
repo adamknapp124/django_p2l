@@ -8,53 +8,31 @@
 				<label class="col" for="wordLength" id="wordLength">
 					Word length:
 				</label>
-				<input
-					@keyup.enter="play"
-					ref="toggleFocus"
-					class="col form-control"
-					v-model="anagramLength"
-					type="text"
-					name="wordLength"
-					placeholder="between 5 and 8"
-					autocomplete="off"
-					autofocus
-					style="text-align: center"
-				/>
+				<input @keyup.enter="play" ref="toggleFocus" class="col form-control" v-model="anagramLength"
+					type="text" name="wordLength" placeholder="between 5 and 8" autocomplete="off" autofocus
+					style="text-align: center" />
 			</div>
 			<hr />
 			<template v-if="anagramLength > 4 && anagramLength < 9">
 				<PlayButton @play-button-click="play" />
 			</template>
 			<template v-else>
-				<button
-					:disabled="''"
-					class="btn btn-secondary form-control m-1 disabled"
-				>
+				<button :disabled="''" class="btn btn-secondary form-control m-1 disabled">
 					Play
 				</button>
 			</template>
 		</div>
-		<div
-			v-else-if="screen === 'play'"
-			id="game-container"
-			class="text-center"
-		>
+		<div v-else-if="screen === 'play'" id="game-container" class="text-center">
 			<template v-if="this.randomChoice.length === 0">
 				<div>
 					<h2>Congratulations!</h2>
 					<strong class="big">You Answered</strong>
 					<div class="huge">{{ score }}</div>
 					<strong class="big">Questions Correctly</strong>
-					<button
-						class="btn btn-primary form-control m-1"
-						v-on:click="restart()"
-					>
+					<button class="btn btn-primary form-control m-1" v-on:click="restart()">
 						Play Again with Same Settings
 					</button>
-					<button
-						class="btn btn-secondary form-control m-1"
-						v-on:click="config()"
-					>
+					<button class="btn btn-secondary form-control m-1" v-on:click="config()">
 						Change Settings
 					</button>
 				</div>
@@ -70,13 +48,8 @@
 						<GameTimer :timeLeft="timeLeft" />
 					</div>
 				</div>
-				<WordEquation
-					v-on:test-click="incrementCounter"
-					:index="this.randomIndex"
-					:question="this.anagramWord"
-					:wordsRemaining="possibilities"
-					:newBaseArray="this.newBaseArray"
-				/>
+				<WordEquation v-on:test-click="incrementCounter" :index="this.randomIndex" :question="this.anagramWord"
+					:wordsRemaining="possibilities" :newBaseArray="this.newBaseArray" />
 			</template>
 			<template v-else-if="timeLeft === 0">
 				<div>
@@ -84,16 +57,10 @@
 					<strong class="big">You Answered</strong>
 					<div class="huge">{{ score }}</div>
 					<strong class="big">Questions Correctly</strong>
-					<button
-						class="btn btn-primary form-control m-1"
-						v-on:click="restart()"
-					>
+					<button class="btn btn-primary form-control m-1" v-on:click="restart()">
 						Play Again with Same Settings
 					</button>
-					<button
-						class="btn btn-secondary form-control m-1"
-						v-on:click="config()"
-					>
+					<button class="btn btn-secondary form-control m-1" v-on:click="config()">
 						Change Settings
 					</button>
 				</div>
@@ -264,6 +231,7 @@ export default {
 	margin: auto;
 	width: 380px;
 }
+
 button.number-button {
 	border-radius: 0.25em;
 	font-size: 3em;
@@ -272,6 +240,7 @@ button.number-button {
 	text-align: center;
 	width: 2em;
 }
+
 #clear-button {
 	border-radius: 0.25em;
 	font-size: 3em;
@@ -280,15 +249,19 @@ button.number-button {
 	text-align: center;
 	width: 4.2em;
 }
+
 #scoreboard {
 	font-size: 1.5em;
 }
+
 .big {
 	font-size: 1.5em;
 }
+
 .huge {
 	font-size: 5em;
 }
+
 .slide-leave-active,
 .slide-enter-active {
 	position: absolute;
@@ -296,14 +269,17 @@ button.number-button {
 	transition: 1s;
 	width: 380px;
 }
+
 .slide-enter {
 	transform: translate(-100%, 0);
 	transition: opacity 0.5s;
 }
+
 .slide-leave-to {
 	opacity: 0;
 	transform: translate(100%, 0);
 }
+
 .slide-right-leave-active,
 .slide-right-enter-active {
 	position: absolute;
@@ -311,10 +287,12 @@ button.number-button {
 	transition: 1s;
 	width: 380px;
 }
+
 .slide-right-enter {
 	transform: translate(100%, 0);
 	transition: opacity 0.5s;
 }
+
 .slide-right-leave-to {
 	opacity: 0;
 	transform: translate(-100%, 0);
