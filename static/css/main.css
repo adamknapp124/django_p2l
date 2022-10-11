@@ -1,0 +1,298 @@
+body {
+	padding-bottom: 50px;
+}
+
+header {
+    margin-bottom: 56px;
+}
+
+h2 {
+	font-style: italic;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: auto;
+    height: 100%;
+}
+
+.navbar-nav .dropdown-menu {
+    position: absolute;
+}
+
+.my-width {
+    width: 90%;
+}
+
+.my-top-margin {
+    margin-top: 83px;
+}
+
+.my-bottom-margin {
+    margin-bottom: 67px;
+}
+
+.greeting {
+    font-size: 8vw;
+}
+
+.under-greeting {
+    font-size: clamp(1rem, 3vw, 1.75rem)
+}
+
+.carousel {
+    width: 100%;
+    margin: auto;
+}
+
+.carousel-caption-important {
+    bottom: 5%;
+    font-style: italic;
+    font-size: calc(10px + 1.5vw);
+    color: white;
+}
+
+.carousel-indicator-important {
+    bottom: 0;
+}
+
+.card-title-text {
+    font-size: clamp(1rem, 8vw, 2rem);
+}
+
+.card-text-text {
+    font-size: clamp(.75rem, 2vw, 1.25rem);
+}
+
+.about-heading {
+    font-size: 9.5vw;
+    position: absolute;
+    text-shadow: 2px 2px 0px #232323;
+    font-family: "Times New Roman", Times, serif;
+    left: 5%;
+    margin-top: 2;
+    text-align: left;
+    z-index: 50;
+    color: rgb(192, 190, 190);
+}
+
+.my-heading-background-top {
+    position: absolute;
+    z-index: -10;
+    top: 56px;
+    margin: auto;
+}
+
+.top-bar {
+    margin-top: 83px !important;
+    margin: auto;
+}
+
+.bottom-bar {
+    margin-bottom: 10% !important;
+    height: 40px;
+}
+
+.my-heading-background-bottom {
+    position: relative;
+    z-index: -10;
+}
+
+.about-caption {
+    font-size: 4.5vw;
+    position: relative;
+    text-shadow: 1px 1px 0px #232323;
+    bottom: 100%;
+    top: 0;
+    right: 6%;
+}
+
+.caption-one-text {
+    right: 0;
+    position: absolute;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+.under-one {
+    z-index: -10;
+    background-color: black;
+    width: 100%;
+}
+
+.under-two {
+    position: relative;
+    z-index: -5;
+    top: -20px;
+}
+
+.our-mission {
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    position: absolute;
+    font-family: "Times New Roman", Times, serif;
+    margin-top: 2;
+    z-index: 50;
+}
+
+.our-mission-small {
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    position: absolute;
+    font-family: "Times New Roman", Times, serif;
+    margin-top: 2;
+    z-index: 50;
+}
+
+.first-about-sub {
+    margin-top: 80px;
+}
+
+.about-sub-heading {
+    color: #ffc107;
+    text-shadow: 1px 1px 0px #232323;
+}
+
+.sub-heading-small {
+    color: #ffc107;
+    text-shadow: 1px 1px 0px #232323;
+}
+
+.my-form {
+    padding-top: 30px;
+}
+
+.my-container {
+    margin: auto;
+    position: relative;
+}
+
+.login {
+    font-size: 8vw;
+}
+
+.contact-text-shadow {
+    text-shadow: 1px 1px 0px #ffffff;
+}
+
+#login {
+    display: block;
+}
+
+#register {
+    display: none;
+}
+
+#preGameScreen {
+    display: block;
+}
+
+#gameScreenOne {
+    display: none;
+}
+
+#gameScreenTwo {
+    display: none;
+}
+
+#gameScreenThree {
+    display: none;
+}
+
+#base00,
+#base01,
+#base02,
+#base03,
+#base04,
+#base05 {
+    display: none;
+}
+
+#timesUp,
+#youWin {
+    display: none;
+    font-size: 5vw;
+    font-style: oblique;
+}
+
+.game-small-text {
+    font-size: clamp(.75rem, 2vw, 1.25rem);
+}
+
+.game-banner-text {
+    font-size: 4vw;
+    font-weight: bold;
+}
+
+.game-header-caption {
+    font-size: clamp(.5rem, 2vw, 2rem);
+    font-weight: bold;
+    font-style: italic;
+}
+
+.score-banner-text {
+    font-size: 3.5vw;
+}
+
+.final-score {
+    font-size: 12vw;
+}
+
+.instruction-text {
+    font-size: 3.5vw;
+    font-style: italic;
+}
+
+#chooseOp {
+    display: block;
+    margin-top: 77px;
+}
+
+#mathFacts {
+    display: none;
+    margin-top: 77px;
+}
+
+#scorePage {
+    display: none;
+    margin-top: 77px;
+}
+
+.math-header-text {
+    font-size: 7vw;
+}
+
+.math-filler-text {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+}
+
+/* MESSAGE STYLES */
+.message {
+    background-color: palegoldenrod;
+    color: black;
+}
+
+.messagedebug {
+    background-color: slategray;
+    color: white;
+}
+
+.messageinfo {
+    background-color: azure;
+    color: darkblue;
+}
+
+.messagesuccess {
+    background-color: lightgreen;
+    color: darkgreen;
+}
+
+.messagewarning {
+    background-color: lightgoldenrodyellow;
+    color: darkgoldenrod;
+}
+
+.messageerror {
+    background-color: pink;
+    color: darkred;
+}

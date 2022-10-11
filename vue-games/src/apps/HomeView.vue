@@ -83,6 +83,7 @@
 						No, play this one!
 					</a>
 				</div>
+                <button class="m-auto">This is HomeVue.vue</button>
 			</div>
 		</div>
 	</main>
