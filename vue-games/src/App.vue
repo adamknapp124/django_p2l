@@ -1,22 +1,13 @@
 <template>
 	<div id="app">
-		<DjangoHeader />
 		<router-view />
-		<DjangoFooter />
 	</div>
 </template>
 
 <script>
-import DjangoHeader from './components/DjangoHeader';
-import DjangoFooter from './components/DjangoFooter';
-
 export default {
 	name: 'app',
-	components: {
-		DjangoHeader,
-		DjangoFooter,
-	},
-};
+	}
 </script>
 
 <style>
