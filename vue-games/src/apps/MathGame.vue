@@ -29,16 +29,16 @@
 						<button
 							class="btn btn-primary form-control m-1"
 							@click="
-								config();
 								recordScore();
+								restart();
 							">
 							Play Again with Same Settings
 						</button>
 						<button
 							class="btn btn-secondary form-control m-1"
 							@click="
-								config();
 								recordScore();
+								config();
 							">
 							Change Settings
 						</button>
@@ -126,6 +126,7 @@
 		},
 		methods: {
 			config() {
+				this.score = 0;
 				this.screen = 'config';
 			},
 			play() {
