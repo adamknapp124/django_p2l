@@ -112,7 +112,7 @@
 					['Multiplication', 'x'],
 					['Division', '/'],
 				],
-				userName: '',
+				userName: 'Test',
 				score: 0,
 				operation: 'x',
 				maxNumber: '10',
