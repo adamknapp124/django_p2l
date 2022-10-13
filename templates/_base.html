@@ -14,95 +14,95 @@
 </head>
 <body>
 {% block body %}
-<header>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top" id="topNav">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'pages:homepage' %}">LTP</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'pages:homepage' %}">Home</a>
-            </li>
-            {% if not user.is_authenticated %}
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'account_login' %}">Log in</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'account_signup' %}">Sign up</a>
-            </li>
-            {% else %}
-            <li class="nav-item dropdown" id="navDropdown">
-              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" 
-              aria-haspopup="true" aria-expanded="false">Games</a>
-              <ul class="dropdown-menu" aria-labelledby="navDropdown">
-                  <li class="nav-item dropdown">
-                    <a class="dropdown-item" href="{% url 'games:anagram-game' %}">Anagram Hunt</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="dropdown-item" href="{% url 'games:math-game' %}">Math Facts Practice</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a href="{% url 'games:game-scores' %}" class="dropdown-item">Game Scores</a>
-                  </li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" 
-              role="button" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
-              Profile
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{% url 'my-account' %}">My Account</a>
-              <a class="dropdown-item" href="#">My Scores</a>
-              <div class="dropdown-divider"></div>
-              <form method="post" action="{% url 'account_logout' %}">
-                {% csrf_token %}
-                <button class="btn dropdown-item">Log out</button>
-              </form>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top" id="topNav">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'pages:homepage' %}">LTP</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'pages:homepage' %}">Home</a>
+                        </li>
+                        {% if not user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'account_login' %}">Log in</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'account_signup' %}">Sign up</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item dropdown" id="navDropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" 
+                                        aria-haspopup="true" aria-expanded="false">Games</a>
+                                <ul class="dropdown-menu" aria-labelledby="navDropdown">
+                                    <li class="nav-item dropdown">
+                                        <a class="dropdown-item" href="{% url 'games:anagram-game' %}">Anagram Hunt</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="dropdown-item" href="{% url 'games:math-game' %}">Math Facts Practice</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a href="{% url 'games:game-scores' %}" class="dropdown-item">Game Scores</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" 
+                                role="button" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                Profile
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{% url 'my-account' %}">My Account</a>
+                                    <a class="dropdown-item" href="#">My Scores</a>
+                                    <div class="dropdown-divider"></div>
+                                    <form method="post" action="{% url 'account_logout' %}">
+                                        {% csrf_token %}
+                                        <button class="btn dropdown-item">Log out</button>
+                                    </form>
+                                </div>
+                            </li>
+                        {% endif %}
+                        <li class="nav-item">
+                        <a class="nav-link" href="{% url 'pages:about-us' %}">About</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-          </li>
-          {% endif %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'pages:about-us' %}">About</a>
-          </li>
-        </ul>
-        </div>
-      </div>
-    </nav>
-</header>
+        </nav>
+    </header>
 {% if messages %}
-<ul>
-    {% for message in messages %}
-    <div class="alert message{{ message.tags }} alert-dismissible" role="alert">
-        <strong>{{message}}</strong>
-        <button type="button" class="close" data-dismiss="alert"
-        aria-label="Close">
-        <i class="fas fa-window-close"></i>
-        </button>
-    </div>
-    {% endfor %}
-</ul>
+    <ul>
+        {% for message in messages %}
+            <div class="alert message{{ message.tags }} alert-dismissible" role="alert">
+                <strong>{{message}}</strong>
+                <button type="button" class="close" data-dismiss="alert"
+                    aria-label="Close">
+                    <i class="fas fa-window-close"></i>
+                </button>
+            </div>
+        {% endfor %}
+    </ul>
 {% endif %}
 {% block main %}{% endblock %}
-<footer class="fixed-bottom bg-light row">
-    <div class="col">
-        <div class="float-right m-1 mr-2">Copyright &copy; 2020 Play to Learn.</div>
-        <nav>
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'pages:contact' %}">Contact</a>
-          </li>
-          {% if user.is_staff %}
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/">Admin</a>
-            </li>
-          {% endif %}
-        </ul>
-        </nav>
+<footer class="fixed-bottom bg-light">
+    <div class="row">
+        <div class="float-left m-1 mr-2 col">Copyright &copy; 2020 Play to Learn.</div>
+        <div class="col float-right">
+            <ul class="list-unstyled">
+                <li class="float-right">
+                    <a class="nav-link" href="{% url 'pages:contact' %}">Contact</a>
+                </li>
+                {% if user.is_staff %}
+                <li class="nav-item float-right">
+                    <a class="nav-link" href="/admin/">Admin</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
     </div>
 </footer>
 {% endblock %}
