@@ -7,4 +7,5 @@ urlpatterns = [
     path('', HomePageView.as_view(), name='homepage'),
     path('about-us/', AboutUsView.as_view(), name='about-us'),
     path('contact/', ContactForm.as_view(), name='contact'),
+    path('thanks/', )
 ]
