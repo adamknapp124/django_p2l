@@ -7,5 +7,6 @@ urlpatterns = [
     path('math-game/', MathGameView.as_view(), name='math-game'),
     path('anagram-game/', AnagramGameView.as_view(), name='anagram-game'),
     path('math-game/record-score/', record_score, name='record_score'),
+    path('record-score/', record_score, name='record_score'),
     path('game-scores/', GameScoresView.as_view(), name='game-scores'),
 ]

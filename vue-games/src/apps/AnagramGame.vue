@@ -75,12 +75,12 @@
 					<strong class="big">Questions Correctly</strong>
 					<button
 						class="btn btn-primary form-control m-1"
-						v-on:click="restart()">
+						@click="recordScore(); restart();">
 						Play Again with Same Settings
 					</button>
 					<button
 						class="btn btn-secondary form-control m-1"
-						v-on:click="config()">
+						@click="recordScore(); config();">
 						Change Settings
 					</button>
 				</div>
@@ -140,7 +140,7 @@
 				score: 0,
 				userName: '',
 				screen: 'config',
-				gameLength: 60,
+				gameLength: 3,
 				timeLeft: 0,
 				answered: false,
 				length: 5,
@@ -159,7 +159,6 @@
 				this.configReset();
 			},
 			configReset() {
-				debugger;
 				this.anagramLength = '';
 				this.$refs.toggleFocus.focus();
 			},

@@ -1,4 +1,7 @@
 import json
+
+from allauth import socialaccount
+
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.generic import TemplateView
@@ -27,8 +30,9 @@ class MathGameView(TemplateView):
 
 def record_score(request):
     data = json.loads(request.body)
+    print(request.user)
 
-    user_name = data['user-name']
+    user_name = request.user
     game = data['game']
     score = data['score']
 

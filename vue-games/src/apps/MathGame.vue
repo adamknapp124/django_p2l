@@ -112,7 +112,6 @@
 					['Multiplication', 'x'],
 					['Division', '/'],
 				],
-				userName: 'Test',
 				score: 0,
 				operation: 'x',
 				maxNumber: '10',
@@ -120,7 +119,7 @@
 				input: '',
 				operands: { num1: '1', num2: '1' },
 				answered: false,
-				gameLength: 10,
+				gameLength: 3,
 				timeLeft: 0,
 			};
 		},
@@ -137,9 +136,9 @@
 			async recordScore() {
 				console.log(this.score);
 				const data = {
-					'user-name': this.userName,
 					score: this.score,
 					game: 'MATH',
+
 				};
 				const response = (await this.axios.post('record-score/', data)).data;
 				console.log(response);
