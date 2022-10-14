@@ -1,4 +1,4 @@
-from django.urls import path, include
+from django.urls import path
 
 from games.views import MathGameView, AnagramGameView, GameScoresView, record_score
 
