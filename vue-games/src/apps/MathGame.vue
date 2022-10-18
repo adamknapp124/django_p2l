@@ -134,7 +134,6 @@
 				this.startTimer();
 			},
 			async recordScore() {
-				console.log(this.score);
 				const data = {
 					score: this.score,
 					game: 'MATH',

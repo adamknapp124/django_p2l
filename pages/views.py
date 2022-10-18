@@ -1,4 +1,8 @@
+import json
+from django.http import JsonResponse
+
 from .forms import ContactForm
+from .models import Review
 
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
@@ -9,6 +13,10 @@ from django.views.generic import TemplateView
 # Create your views here.
 class AboutUsView(TemplateView):
     template_name = 'pages/about_us.html'
+
+
+class ReviewPageView(TemplateView):
+    template_name = 'review_form.html'
 
 
 def contact(request):
@@ -36,3 +44,31 @@ def contact(request):
 
 class HomePageView(TemplateView):
     template_name = 'pages/home.html'
+
+def user_review(request):
+    data = json.loads(request.body)
+    print(request.user)
+
+    user_name = request.user
+    first_name = data['fname'],
+    last_name = data['lname'],
+    email = data['email'],
+    rating = data['value']
+    review = data['review'],
+
+    RATING = [
+        (1, 'Below Average'),
+        (2, 'I\'ve Seen Worse'),
+        (3, 'Not Too Shabby'),
+        (4, 'Pretty Alright'),
+        (5, 'Vince McMahon')
+    ]
+
+    new_score = Review(user_name=user_name, first_name=first_name, last_name=last_name, email=email, rating=rating, review=review)
+    new_score.save()
+
+    response = {
+        'success': True
+    }
+
+    return JsonResponse(response)  

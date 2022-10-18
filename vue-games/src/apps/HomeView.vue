@@ -131,20 +131,6 @@
 				score: 0,
 			};
 		},
-		methods: {
-			async recordScore() {
-				const data = {
-					'user-name': this.userName,
-					score: this.score,
-					game: 'ANAGRAM',
-				};
-
-				const response = (await this.axios.post('/record-score/', data))
-					.data;
-
-				console.log(response);
-			},
-		},
 	};
 </script>
 
