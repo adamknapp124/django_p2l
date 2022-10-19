@@ -140,7 +140,7 @@
 				score: 0,
 				userName: '',
 				screen: 'config',
-				gameLength: 3,
+				gameLength: 10,
 				timeLeft: 0,
 				answered: false,
 				length: 5,
@@ -230,6 +230,8 @@
 					'user-name': this.userName,
 					score: this.score,
 					game: 'ANAGRAM',
+                    word_length: this.length,
+                    
 				};
 
 				const response = (await this.axios.post('/record-score/', data)).data;

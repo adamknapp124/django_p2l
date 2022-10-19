@@ -114,12 +114,12 @@
 				],
 				score: 0,
 				operation: 'x',
-				maxNumber: '10',
+				maxNumber: 10,
 				screen: 'config',
 				input: '',
 				operands: { num1: '1', num2: '1' },
 				answered: false,
-				gameLength: 3,
+				gameLength: 6,
 				timeLeft: 0,
 			};
 		},
@@ -137,6 +137,8 @@
 				const data = {
 					score: this.score,
 					game: 'MATH',
+                    operation: this.operation,
+                    maxNumber: this.maxNumber,
 
 				};
 				const response = (await this.axios.post('/record-score/', data)).data;

@@ -16,8 +16,8 @@ class GameScoresView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(GameScoresView, self).get_context_data(**kwargs)
-        context['anagram_scores'] = GameScore.objects.filter(game__exact='ANAGRAM').order_by('-score')
-        context['math_scores'] = GameScore.objects.filter(game__exact='MATH').order_by('-score')
+        context['anagram_scores'] = GameScore.objects.filter(game__exact='ANAGRAM').order_by('-score')[:10]
+        context['math_scores'] = GameScore.objects.filter(game__exact='MATH').order_by('-score')[:10]
         return context
 
 
@@ -27,13 +27,21 @@ class MathGameView(TemplateView):
 
 def record_score(request):
     data = json.loads(request.body)
-    print(request.user)
-
-    user_name = request.user
     game = data['game']
-    score = data['score']
+    if game == 'MATH':
+        user_name = request.user
+        score = data['score']
+        operation = data['operation']
+        max_number = data['maxNumber']
+        new_score = GameScore(user_name=user_name, game=game, score=score,
+                    operation=operation, max_number=max_number)
+    else:
+        user_name = request.user
+        score = data['score']
+        word_length = data['word_length']
+        new_score = GameScore(user_name=user_name, game=game, score=score,
+                    word_length=word_length)
 
-    new_score = GameScore(user_name=user_name, game=game, score=score)
     new_score.save()
 
     response = {
