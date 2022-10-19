@@ -8,3 +8,4 @@ class Review(models.Model):
     rating = models.IntegerField(null=True)
     review = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
+    featured = models.BooleanField(default=False)
