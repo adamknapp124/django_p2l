@@ -38,7 +38,7 @@
                     value: this.value,
 
 				};
-				const response = (await this.axios.post('record-review/', data)).data;
+				const response = (await this.axios.post('/record-review/', data)).data;
 				console.log(response);
             },
         }

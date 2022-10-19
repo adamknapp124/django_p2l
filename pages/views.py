@@ -49,26 +49,17 @@ def user_review(request):
     data = json.loads(request.body)
     print(request.user)
 
-    user_name = request.user
-    first_name = data['fname'],
-    last_name = data['lname'],
-    email = data['email'],
+    first_name = data['fname']
+    last_name = data['lname']
+    email = data['email']
+    review = data['review']
     rating = data['value']
-    review = data['review'],
 
-    RATING = [
-        (1, 'Below Average'),
-        (2, 'I\'ve Seen Worse'),
-        (3, 'Not Too Shabby'),
-        (4, 'Pretty Alright'),
-        (5, 'Vince McMahon')
-    ]
-
-    new_score = Review(user_name=user_name, first_name=first_name, last_name=last_name, email=email, rating=rating, review=review)
+    new_score = Review(first_name=first_name, last_name=last_name, email=email, review=review, rating=rating)
     new_score.save()
 
     response = {
         'success': True
     }
 
-    return JsonResponse(response)  
+    return JsonResponse(response) 

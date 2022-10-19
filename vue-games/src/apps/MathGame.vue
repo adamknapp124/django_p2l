@@ -139,7 +139,7 @@
 					game: 'MATH',
 
 				};
-				const response = (await this.axios.post('record-score/', data)).data;
+				const response = (await this.axios.post('/record-score/', data)).data;
 				console.log(response);
 			},
 			changeOperation(eventName) {

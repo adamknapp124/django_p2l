@@ -155,7 +155,7 @@
 		},
 		methods: {
 			config() {
-				this.screen = 'config';
+                this.screen = 'config';
 				this.configReset();
 			},
 			configReset() {
