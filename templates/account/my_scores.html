@@ -6,7 +6,7 @@
   <h2>Math Game</h2>
   <ol>
     {% for score in math_scores %}
-      <li>{{score.score}}: ({{this.user_name}} - {{ score.operation }} - {{ score.max_number }} - {{score.created}})</li>
+      <li>{{score.score}}: ({{score.user_name}} - {{ score.operation }} - {{ score.max_number }} - {{score.created}})</li>
     {% endfor %}
   </ol>
   <h2>Anagram Game</h2>
