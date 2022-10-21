@@ -3,7 +3,7 @@ body {
 }
 
 header {
-    margin-bottom: 56px;
+	margin-bottom: 56px;
 }
 
 h2 {
@@ -11,192 +11,196 @@ h2 {
 }
 
 html {
-    height: 100%;
+	height: 100%;
 }
 
 body {
-    margin: auto;
-    height: 100%;
+	margin: auto;
+	height: 100%;
 }
 
 .navbar-nav .dropdown-menu {
-    position: absolute;
+	position: absolute;
 }
 
 .my-width {
-    width: 90%;
+	width: 90%;
 }
 
 .my-top-margin {
-    margin-top: 83px;
+	margin-top: 83px;
 }
 
 .my-bottom-margin {
-    margin-bottom: 67px;
+	margin-bottom: 67px;
 }
 
 .greeting {
-    font-size: 8vw;
+	font-size: 8vw;
 }
 
 .under-greeting {
-    font-size: clamp(1rem, 3vw, 1.75rem)
+	font-size: clamp(1rem, 3vw, 1.75rem);
 }
 
 .carousel {
-    width: 100%;
-    margin: auto;
+	width: 100%;
+	margin: auto;
 }
 
 .carousel-caption-important {
-    bottom: 5%;
-    font-style: italic;
-    font-size: calc(10px + 1.5vw);
-    color: white;
+	bottom: 5%;
+	font-style: italic;
+	font-size: calc(10px + 1.5vw);
+	color: white;
 }
 
 .carousel-indicator-important {
-    bottom: 0;
+	bottom: 0;
+}
+
+.carousel-item {
+	min-height: 15em;
 }
 
 .card-title-text {
-    font-size: clamp(1rem, 8vw, 2rem);
+	font-size: clamp(1rem, 8vw, 2rem);
 }
 
 .card-text-text {
-    font-size: clamp(.75rem, 2vw, 1.25rem);
+	font-size: clamp(0.75rem, 2vw, 1.25rem);
 }
 
 .about-heading {
-    font-size: 9.5vw;
-    position: absolute;
-    text-shadow: 2px 2px 0px #232323;
-    font-family: "Times New Roman", Times, serif;
-    left: 5%;
-    margin-top: 2;
-    text-align: left;
-    z-index: 50;
-    color: rgb(192, 190, 190);
+	font-size: 9.5vw;
+	position: absolute;
+	text-shadow: 2px 2px 0px #232323;
+	font-family: 'Times New Roman', Times, serif;
+	left: 5%;
+	margin-top: 2;
+	text-align: left;
+	z-index: 50;
+	color: rgb(192, 190, 190);
 }
 
 .my-heading-background-top {
-    position: absolute;
-    z-index: -10;
-    top: 56px;
-    margin: auto;
+	position: absolute;
+	z-index: -10;
+	top: 56px;
+	margin: auto;
 }
 
 .top-bar {
-    margin-top: 83px !important;
-    margin: auto;
+	margin-top: 83px !important;
+	margin: auto;
 }
 
 .bottom-bar {
-    margin-bottom: 10% !important;
-    height: 40px;
+	margin-bottom: 10% !important;
+	height: 40px;
 }
 
 .my-heading-background-bottom {
-    position: relative;
-    z-index: -10;
+	position: relative;
+	z-index: -10;
 }
 
 .about-caption {
-    font-size: 4.5vw;
-    position: relative;
-    text-shadow: 1px 1px 0px #232323;
-    bottom: 100%;
-    top: 0;
-    right: 6%;
+	font-size: 4.5vw;
+	position: relative;
+	text-shadow: 1px 1px 0px #232323;
+	bottom: 100%;
+	top: 0;
+	right: 6%;
 }
 
 .caption-one-text {
-    right: 0;
-    position: absolute;
-    font-size: clamp(1rem, 2vw, 1.25rem);
+	right: 0;
+	position: absolute;
+	font-size: clamp(1rem, 2vw, 1.25rem);
 }
 
 .under-one {
-    z-index: -10;
-    background-color: black;
-    width: 100%;
+	z-index: -10;
+	background-color: black;
+	width: 100%;
 }
 
 .under-two {
-    position: relative;
-    z-index: -5;
-    top: -20px;
+	position: relative;
+	z-index: -5;
+	top: -20px;
 }
 
 .our-mission {
-    font-size: clamp(1.25rem, 2vw, 1.75rem);
-    position: absolute;
-    font-family: "Times New Roman", Times, serif;
-    margin-top: 2;
-    z-index: 50;
+	font-size: clamp(1.25rem, 2vw, 1.75rem);
+	position: absolute;
+	font-family: 'Times New Roman', Times, serif;
+	margin-top: 2;
+	z-index: 50;
 }
 
 .our-mission-small {
-    font-size: clamp(1.25rem, 2vw, 1.75rem);
-    position: absolute;
-    font-family: "Times New Roman", Times, serif;
-    margin-top: 2;
-    z-index: 50;
+	font-size: clamp(1.25rem, 2vw, 1.75rem);
+	position: absolute;
+	font-family: 'Times New Roman', Times, serif;
+	margin-top: 2;
+	z-index: 50;
 }
 
 .first-about-sub {
-    margin-top: 80px;
+	margin-top: 80px;
 }
 
 .about-sub-heading {
-    color: #ffc107;
-    text-shadow: 1px 1px 0px #232323;
+	color: #ffc107;
+	text-shadow: 1px 1px 0px #232323;
 }
 
 .sub-heading-small {
-    color: #ffc107;
-    text-shadow: 1px 1px 0px #232323;
+	color: #ffc107;
+	text-shadow: 1px 1px 0px #232323;
 }
 
 .my-form {
-    padding-top: 30px;
+	padding-top: 30px;
 }
 
 .my-container {
-    margin: auto;
-    position: relative;
+	margin: auto;
+	position: relative;
 }
 
 .login {
-    font-size: 8vw;
+	font-size: 8vw;
 }
 
 .contact-text-shadow {
-    text-shadow: 1px 1px 0px #ffffff;
+	text-shadow: 1px 1px 0px #ffffff;
 }
 
 #login {
-    display: block;
+	display: block;
 }
 
 #register {
-    display: none;
+	display: none;
 }
 
 #preGameScreen {
-    display: block;
+	display: block;
 }
 
 #gameScreenOne {
-    display: none;
+	display: none;
 }
 
 #gameScreenTwo {
-    display: none;
+	display: none;
 }
 
 #gameScreenThree {
-    display: none;
+	display: none;
 }
 
 #base00,
@@ -205,94 +209,94 @@ body {
 #base03,
 #base04,
 #base05 {
-    display: none;
+	display: none;
 }
 
 #timesUp,
 #youWin {
-    display: none;
-    font-size: 5vw;
-    font-style: oblique;
+	display: none;
+	font-size: 5vw;
+	font-style: oblique;
 }
 
 .game-small-text {
-    font-size: clamp(.75rem, 2vw, 1.25rem);
+	font-size: clamp(0.75rem, 2vw, 1.25rem);
 }
 
 .game-banner-text {
-    font-size: 4vw;
-    font-weight: bold;
+	font-size: 4vw;
+	font-weight: bold;
 }
 
 .game-header-caption {
-    font-size: clamp(.5rem, 2vw, 2rem);
-    font-weight: bold;
-    font-style: italic;
+	font-size: clamp(0.5rem, 2vw, 2rem);
+	font-weight: bold;
+	font-style: italic;
 }
 
 .score-banner-text {
-    font-size: 3.5vw;
+	font-size: 3.5vw;
 }
 
 .final-score {
-    font-size: 12vw;
+	font-size: 12vw;
 }
 
 .instruction-text {
-    font-size: 3.5vw;
-    font-style: italic;
+	font-size: 3.5vw;
+	font-style: italic;
 }
 
 #chooseOp {
-    display: block;
-    margin-top: 77px;
+	display: block;
+	margin-top: 77px;
 }
 
 #mathFacts {
-    display: none;
-    margin-top: 77px;
+	display: none;
+	margin-top: 77px;
 }
 
 #scorePage {
-    display: none;
-    margin-top: 77px;
+	display: none;
+	margin-top: 77px;
 }
 
 .math-header-text {
-    font-size: 7vw;
+	font-size: 7vw;
 }
 
 .math-filler-text {
-    font-size: clamp(1rem, 2vw, 1.5rem);
+	font-size: clamp(1rem, 2vw, 1.5rem);
 }
 
 /* MESSAGE STYLES */
 .message {
-    background-color: palegoldenrod;
-    color: black;
+	background-color: palegoldenrod;
+	color: black;
 }
 
 .messagedebug {
-    background-color: slategray;
-    color: white;
+	background-color: slategray;
+	color: white;
 }
 
 .messageinfo {
-    background-color: azure;
-    color: darkblue;
+	background-color: azure;
+	color: darkblue;
 }
 
 .messagesuccess {
-    background-color: lightgreen;
-    color: darkgreen;
+	background-color: lightgreen;
+	color: darkgreen;
 }
 
 .messagewarning {
-    background-color: lightgoldenrodyellow;
-    color: darkgoldenrod;
+	background-color: lightgoldenrodyellow;
+	color: darkgoldenrod;
 }
 
 .messageerror {
-    background-color: pink;
-    color: darkred;
+	background-color: pink;
+	color: darkred;
 }
