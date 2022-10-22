@@ -2,17 +2,17 @@
     <form>
         <div id="review">
             <p>Leave a review!</p>
-        <label>First Name:</label>
-        <input required v-model="fname">
-        <label>Last Name:</label>
-        <input required v-model="lname">
-        <label>Email:</label>
-        <input type="email" required v-model="email">
-        <label>Rating:</label>
-        <input type="range" v-model="value" min="1" max="5">
-        <label>Review:</label>
-        <textarea v-model="review" placeholder="Please type your review here" cols="30" rows="5"></textarea>
-        <input type="submit" @click="logReview">
+            <label>First Name:</label>
+            <input required v-model="fname">
+            <label>Last Name:</label>
+            <input required v-model="lname">
+            <label>Email:</label>
+            <input type="email" required v-model="email">
+            <label>Rating:</label>
+            <input type="range" v-model="value" min="1" max="5">
+            <label>Review:</label>
+            <textarea v-model="review" placeholder="Please type your review here" cols="30" rows="5"></textarea>
+            <input type="submit" @click="logReview">
         </div>
     </form>
 </template>
@@ -36,7 +36,6 @@
                     email: this.email,
                     review: this.review,
                     value: this.value,
-
 				};
 				const response = (await this.axios.post('/record-review/', data)).data;
 				console.log(response);

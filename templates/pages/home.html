@@ -61,7 +61,7 @@
                         tells your how good (or bad) you did!
                     </p>
                 </div>
-                <a href="/anagramhunt" class="btn btn-warning m-3">Play this one!</a>
+                <a href="{% url 'games:anagram-game' %}" class="btn btn-warning m-3">Play this one!</a>
             </div>
             <div class="col-sm-12 col-md-6 card text-center border-0">
                 <img src="static/image/mathfacts.jpg" class="card-img-top" alt="..." />
@@ -75,7 +75,7 @@
                         had to the right to. Ever. Oh and see a scoreboard.
                     </p>
                 </div>
-                <a href="/mathfacts" class="btn btn-warning m-3">No, play this one!</a>
+                <a href="{% url 'games:math-game' %}" class="btn btn-warning m-3">No, play this one!</a>
             </div>
         </div>
         </div>
