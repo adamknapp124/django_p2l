@@ -37,11 +37,16 @@
         <li data-target="#myCarousel" data-slide-to="2"></li>
       </ol>
       <div class="carousel-inner">
+
+
+
         <div class="carousel-item active">
           <div class="carousel-darkening-overlay"></div>
+          {% for reviews in carousel_reviews %}
           <div class="carousel-caption carousel-caption-important lead m-auto">
-            "By far the easiest way to learn!" -This Guy
+            {{ reviews.review }} - {{ reviews.first_name }}
           </div>
+          {% endfor %}
 
         </div>
         <div class="carousel-item">

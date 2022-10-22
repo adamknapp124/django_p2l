@@ -45,6 +45,14 @@ def contact(request):
 class HomePageView(TemplateView):
     template_name = 'pages/home.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(HomePageView, self).get_context_data(**kwargs)
+        context['carousel_reviews'] = Review.objects.filter(id=2)
+        return context
+
+    def get_object(self):
+        return self.request.user
+
 def user_review(request):
     data = json.loads(request.body)
     print(request.user)
