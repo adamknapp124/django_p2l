@@ -47,7 +47,7 @@ class HomePageView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(HomePageView, self).get_context_data(**kwargs)
-        context['carousel_reviews'] = Review.objects.filter(id=2)
+        context['carousel_reviews'] = Review.objects.filter(featured = True)
         return context
 
     def get_object(self):
