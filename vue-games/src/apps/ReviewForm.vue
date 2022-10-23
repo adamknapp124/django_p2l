@@ -1,7 +1,7 @@
 <template>
     <form>
         <div id="review">
-            <p>Leave a review!</p>
+            <div class="display-3 text-center">Review</div>
             <label>First Name:</label>
             <input required v-model="fname">
             <label>Last Name:</label>
@@ -11,7 +11,7 @@
             <label>Rating:</label>
             <input type="range" v-model="value" min="1" max="5">
             <label>Review:</label>
-            <textarea v-model="review" placeholder="Please type your review here" cols="30" rows="5"></textarea>
+            <textarea v-model="review" placeholder="Please type your review here" cols="53" rows="5"></textarea>
             <input type="submit" @click="logReview">
         </div>
     </form>
@@ -46,7 +46,7 @@
 
 <style>
     form {
-        max-width: 420px;
+        max-width: 600px;
         margin: 30px auto;
         background: white;
         text-align: left;
