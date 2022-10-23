@@ -3,7 +3,7 @@ body {
 }
 
 header {
-	margin-bottom: 56px;
+	margin-bottom: 80px;
 }
 
 h2 {
@@ -300,4 +300,42 @@ body {
 .messageerror {
 	background-color: pink;
 	color: darkred;
+}
+label {
+	color: #aaa;
+	display: inline-block;
+	margin: 25px 0 15px;
+	font-size: 0.6em;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: bold;
+}
+form {
+	max-width: 600px;
+	margin: 30px auto;
+	background: white;
+	text-align: left;
+	padding: 40px;
+	border-radius: 10px;
+}
+input,
+select {
+	display: block;
+	padding: 10px 6px;
+	width: 100%;
+	box-sizing: border-box;
+	border: none;
+	border-bottom: 1px solid #ddd;
+	color: #555;
+}
+textarea {
+	margin-top: 15px;
+	resize: None;
+}
+#review {
+	border: 1px solid rgb(100, 100, 100);
+	padding: 35px;
+}
+v-range-slider {
+	max-width: 380px;
 }

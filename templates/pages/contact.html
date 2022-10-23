@@ -8,8 +8,8 @@
 <p class="success">Your message was submitted successfully. Thank you.</p>
 
 {% else %}
-  <div class="card border-primary m-auto mb-3" style="max-width: 30rem">
-    <div class="card-header text-center">Contact us</div>
+  <div class="card m-auto mb-3" id="contact-form" style="max-width: 30rem">
+    <h1 class="card-header text-center">Contact us</h1>
     <div class="card-body">
       <form method="post" class="m-auto">
         {% csrf_token %}

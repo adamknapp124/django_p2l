@@ -2,17 +2,49 @@
 
 {% block title %}Game Scores{% endblock %}
 {% block main %}
-  <h1>Game Scores</h1>
-  <h2>Math Game</h2>
-  <ol>
-    {% for score in math_scores %}
-      <li>{{score.score}}: ({{score.user_name}} - {{ score.operation }} - {{ score.max_number }} - {{score.created}})</li>
-    {% endfor %}
-  </ol>
-  <h2>Anagram Game</h2>
-  <ol>
-    {% for score in anagram_scores %}
-      <li>{{score.score}}: ({{score.user_name}} - {{ score.word_length }} - {{score.created}})</li>
-    {% endfor %}
-  </ol>
+<h1 class="text-center">Game Scores</h1>
+<hr>
+<h2 class="text-center">Math Facts</h2>
+  <table class="table m-auto w-75">
+        <thead>
+            <tr>
+                <th scope="col" class="text-center">User</th>
+                <th scope="col" class="text-center">Score</th>
+                <th scope="col" class="text-center">Operation</th>
+                <th scope="col" class="text-center">Max Number</th>
+                <th scope="col" class="text-center">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for score in math_scores %}
+                <tr>
+                    <td class="text-center">{{ score.user_name }}</td>
+                    <td class="text-center">{{ score.score }}</td>
+                    <td class="text-center">{{ score.operation }}</td>
+                    <td class="text-center">{{ score.max_number }}</td>
+                    <td class="text-center">{{ score.created }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <hr>
+<h2 class="text-center">Anagram Hunt</h2>
+    <table class="table m-auto w-75">
+        <thead>
+            <tr>
+                <th scope="col" class="text-center">User</th>
+                <th scope="col" class="text-center">Score</th>
+                <th scope="col" class="text-center">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for score in anagram_scores %}
+                <tr>
+                    <td class="text-center">{{ score.user_name }}</td>
+                    <td class="text-center">{{ score.score }}</td>
+                    <td class="text-center">{{ score.created }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

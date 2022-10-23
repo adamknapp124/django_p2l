@@ -1,14 +1,14 @@
 <template>
     <form>
         <div id="review">
-            <div class="display-3 text-center">Review</div>
+            <h1 class="card-header text-center">Review</h1>
             <label>First Name:</label>
             <input required v-model="fname">
             <label>Last Name:</label>
             <input required v-model="lname">
             <label>Email:</label>
             <input type="email" required v-model="email">
-            <label>Rating:</label>
+            <label>Rating: {{ this.value }}</label>
             <input type="range" v-model="value" min="1" max="5">
             <label>Review:</label>
             <textarea v-model="review" placeholder="Please type your review here" cols="53" rows="5"></textarea>
